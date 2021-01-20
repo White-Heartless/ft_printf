@@ -22,7 +22,7 @@ t_variables	found_percent(t_variables v)
 			v.num = va_arg(v.arguments, int);
 			ft_putnbr_fd(v.num, 1);
 			v.str++;
-			v.to_ret++;
+			v.to_ret++;//fixare, aggiunge uno indipendentemente dall l del numero. easy fix maybe aggiungere ritorno a ft_putnbr?
 		}
 		else if (v.conv_spec == '%')
 		{
