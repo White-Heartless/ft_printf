@@ -11,38 +11,38 @@
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(const char *to_parse, ...)
 {
-	va_list arguments;
-	char	*str;
-	int		num;
+	t_variables	v;
+	//wchar_t test = 0x3f;
 
-	va_start(arguments, to_parse);
-	str = (char *)to_parse;
-	while (*str)
+	va_start(v.arguments, to_parse);
+	v.to_ret = 0;
+	v.str = (char *)to_parse;
+	while (*v.str)
 	{
-		if (*str != '%')
+		if (*v.str != '%')
 		{
-			write(1, &(*str), 1);
-			str++;
+			write(1, &(*v.str++), 1);
+			v.to_ret++;
 		}
 		else
 		{
-			str++;
-			if (ft_strchr(str, 'd') > 0)
-			{
-				num = va_arg(arguments, int);
-				ft_putnbr_fd(num, 1);
-				str++;
-			}
+			v = found_percent(v);
 		}
 	}
-	va_end(arguments);
-	return (1);
+	va_end(v.arguments);
+	return (v.to_ret);
 }
 
 int	main(void)
 {
-	ft_printf("ciao mam%dma%dxxx%d\n", 13, 42, 0);
+	int i= 0;
+	i = ft_printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%%<\nchar>%c<\n", 13, 42, 0,'c');
+	printf(">>%d<<\n",i);
+	i = printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%%<\nchar>%c<\n", 13, 42, 0,'c');
+	printf(">>%d<<\n",i);
+
 }

@@ -14,15 +14,21 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <unistd.h>
+//# include <unistd.h>mac only
+#include <io.h>//windows
 # include "../libft/libft.h"
 
 typedef struct	s_variables
 {
-	void			*content;
-	struct s_list	*next;
+	va_list	arguments;
+	char	*str;
+	int		num;
+	char	conv_spec;
+	char	chr;
+	int		to_ret;
 }				t_variables;
 
 int				ft_printf(const char *to_parse, ...);
+t_variables		found_percent(t_variables v);
 
 #endif

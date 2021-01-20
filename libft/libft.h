@@ -13,7 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
+//# include <unistd.h>mac only
+#include <io.h>//windows
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
@@ -69,5 +70,6 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
+int				ft_ischarset(int character, char *charset);
 
 #endif
