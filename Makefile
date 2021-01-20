@@ -31,6 +31,6 @@ fclean: clean
 re: fclean all
 
 build: 
-	$(CC) $(CFLAGS) $(HEADER) $(SRCS)
+	$(CC) $(CFLAGS) $(HEADER) $(SRCS) ./libft/libft.a
 
 .PHONY: clean fclean re

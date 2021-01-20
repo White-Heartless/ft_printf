@@ -6,7 +6,7 @@
 /*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 17:06:29 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/20 18:04:43 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:02:28 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 typedef struct	s_variables
 {
