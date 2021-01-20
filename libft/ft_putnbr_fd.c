@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd, int *counter)
 {
 	unsigned int	u_n;
 
@@ -20,13 +20,18 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		write(fd, "-", 1);
+		*counter = *counter + 1;
 		u_n = (unsigned int)(-1 * n);
 	}
 	if (u_n > 9)
 	{
-		ft_putnbr_fd(u_n / 10, fd);
+		ft_putnbr_fd(u_n / 10, fd, counter);
 		ft_putchar_fd('0' + u_n % 10, fd);
+		*counter = *counter + 1;
 	}
 	else
+	{
 		ft_putchar_fd('0' + u_n, fd);
+		*counter = *counter + 1;
+	}
 }

@@ -26,6 +26,7 @@ typedef struct	s_variables
 	char	conv_spec;
 	char	chr;
 	int		to_ret;
+	int		counter;
 }				t_variables;
 
 int				ft_printf(const char *to_parse, ...);

@@ -20,6 +20,7 @@ int	ft_printf(const char *to_parse, ...)
 
 	va_start(v.arguments, to_parse);
 	v.to_ret = 0;
+	v.counter = 0;
 	v.str = (char *)to_parse;
 	while (*v.str)
 	{

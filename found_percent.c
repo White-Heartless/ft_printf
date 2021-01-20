@@ -20,9 +20,10 @@ t_variables	found_percent(t_variables v)
 		if (v.conv_spec == 'd')
 			{
 			v.num = va_arg(v.arguments, int);
-			ft_putnbr_fd(v.num, 1);
+			ft_putnbr_fd(v.num, 1, &v.counter);
 			v.str++;
-			v.to_ret++;//fixare, aggiunge uno indipendentemente dall l del numero. easy fix maybe aggiungere ritorno a ft_putnbr?
+			v.to_ret = v.to_ret +v.counter;
+			v.counter = 0;
 		}
 		else if (v.conv_spec == '%')
 		{
