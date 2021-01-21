@@ -71,5 +71,7 @@ void			ft_putnbr_fd(int n, int fd, int *counter);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
 int				ft_ischarset(int character, char *charset);
+void			ft_putlong_fd(long int n, int fd, int *counter);
+char			*ft_strjoinfree(char **s1, char **s2, int f);
 
 #endif

@@ -39,6 +39,8 @@ typedef struct	s_variables
 	char	stmp[11];
 	char	tmp;
 	int		i;
+	char	*buffer;
+	int 	error;
 }				t_variables;
 
 int				ft_printf(const char *to_parse, ...);

@@ -31,6 +31,7 @@ static t_variables	ft_init_vars(t_variables v)
 	v.flags[4] = 0;
 	v.fd = FD;
 	v.i = 0;
+	error = 0;
 	while (i < 11)
 		v.stmp[i++] = 0;
 	return (v);
@@ -83,11 +84,11 @@ int					ft_printf(const char *to_parse, ...)
 
 int	main(void)
 {
-	int i= 0;
+	int i= 14;
+	long int b = 166;
 	int j= 0;
-	j = ft_printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%-123Q<\nchar>%c<\n", 13, 42, 0,'c','w');
-	i =    printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%-6.5d<\nchar>%c<\n", 13, 42, 0, 42,'w');
+	j = ft_printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%ld<\nchar>%c<\n", 13, 166, 0,b,'w');
+	i =    printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%ld<\nchar>%c<\n", 13, 166, 0,b,'w');
 	printf(">>%d<<\n",j);
 	printf(">>%d<<\n",i);
-
 }
