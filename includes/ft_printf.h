@@ -18,6 +18,10 @@
 #include <io.h>//windows
 # include "../libft/libft.h"
 
+#ifndef FD
+#define FD 1
+#endif
+
 typedef struct	s_variables
 {
 	va_list	arguments;
@@ -27,9 +31,20 @@ typedef struct	s_variables
 	char	chr;
 	int		to_ret;
 	int		counter;
+	int		flags[5];
+	int		width;
+	int		precision;
+	int		length;
+	int		fd;
+	char	stmp[11];
+	char	tmp;
+	int		i;
 }				t_variables;
 
 int				ft_printf(const char *to_parse, ...);
-t_variables		found_percent(t_variables v);
+t_variables		ft_found_percent(t_variables v);
+t_variables		ft_flush_v(t_variables v);
+t_variables		ft_found_conversion(t_variables v);
+t_variables		ft_di_conversion(t_variables v);
 
 #endif
