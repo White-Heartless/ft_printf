@@ -85,6 +85,7 @@ static t_variables	ft_set_precision(t_variables v)
 		v.precision = ft_atoi(v.stmp);
 	}
 	i = 0;
+	v.pflag = 1;
 	while (i < 11)
 		v.stmp[i++] = 0;
 	return (v);

@@ -29,6 +29,7 @@ static t_variables	ft_init_vars(t_variables v)
 	v.flags[2] = 0;
 	v.flags[3] = 0;
 	v.flags[4] = 0;
+	v.pflag = 0;
 	v.fd = FD;
 	v.i = 0;
 	v.error = 0;
@@ -56,6 +57,7 @@ t_variables			ft_flush_v(t_variables v)
 	v.flags[2] = 0;
 	v.flags[3] = 0;
 	v.flags[4] = 0;
+	v.pflag = 1;
 	return (v);
 }
 
@@ -82,7 +84,7 @@ int					ft_printf(const char *to_parse, ...)
 	va_end(v.arguments);
 	return (v.to_ret);
 }
-/*
+
 int	main(void)
 {
 	int i= 0;
@@ -91,25 +93,56 @@ int	main(void)
 	i =    printf("%d\n", 13);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 	j = ft_printf("%d\n", 'a');
 	i =    printf("%d\n", 'a');
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 	j = ft_printf("%5d\n", 42);
 	i =    printf("%5d\n", 42);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 	j = ft_printf("%05d\n", 43);
 	i =    printf("%05d\n", 43);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 	j = ft_printf("%5.3d\n", 14);
 	i =    printf("%5.3d\n", 14);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 	j = ft_printf("%3.5d\n", 15);
 	i =    printf("%3.5d\n", 15);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
+	j = ft_printf("%3.5d\n", -16);
+	i =    printf("%3.5d\n", -16);
+	printf(">>%d<<",j);
+	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
+	j = ft_printf("|%-5.3d|\n", -17);
+	i =    printf("|%-5.3d|\n", -17);
+	printf(">>%d<<",j);
+	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
+	j = ft_printf("|%.d|\n", 0);
+	i =    printf("|%.d|\n", 0);
+	printf(">>%d<<",j);
+	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
+	j = ft_printf("|%-5.0d|\n", 19);
+	i =    printf("|%-5.0d|\n", 19);
+	printf(">>%d<<",j);
+	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
+	j = ft_printf("|%5.0d|\n", 0);
+	i =    printf("|%5.0d|\n", 0);
+	printf(">>%d<<",j);
+	printf(">>%d<<\n",i);
+	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 }
-*/
+

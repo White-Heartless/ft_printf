@@ -13,8 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>//mac only
-//#include <io.h>//windows
+//# include <unistd.h>//mac only
+#include <io.h>//windows
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>

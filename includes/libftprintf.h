@@ -14,9 +14,9 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
-# include <unistd.h>//mac only
+//# include <unistd.h>//mac only
 #include <stdio.h>
-//#include <io.h>//windows
+#include <io.h>//windows
 #include "../libft/libft.h"
 
 #ifndef FD
@@ -41,7 +41,8 @@ typedef struct	s_variables
 	char	tmp;
 	int		i;
 	char	*buffer;
-	int 	error;
+	int		error;
+	int		pflag;
 }				t_variables;
 
 int				ft_printf(const char *to_parse, ...);
