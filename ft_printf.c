@@ -6,11 +6,12 @@
 /*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 18:50:16 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/22 17:44:18 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:58:34 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libftprintf.h"
+
 
 static t_variables	ft_init_vars(t_variables v)
 {
@@ -110,4 +111,5 @@ int	main(void)
 	i =    printf("%3.5d\n", 15);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
-}*/
+}
+*/

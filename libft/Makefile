@@ -1,7 +1,7 @@
 NAME = libft.a
 HEADER = libft.h
-AR = ar -rc
-RM = rm -f
+AR = ar -rcs
+RM = rm -fr
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
@@ -26,8 +26,11 @@ clean:
 		$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
-			$(RM) $(NAME)
+			$(RM) $(NAME) libft.o
 
 re: fclean all
 
-.PHONY: clean fclean re
+object:
+		$(CC) -r -nostdlib $(CFLAGS) $(SRCS) $(BSRCS) -o libft.o
+
+.PHONY: clean fclean re object
