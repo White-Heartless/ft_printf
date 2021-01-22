@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   found_conversion.c                                 :+:      :+:    :+:   */
+/*   ft_found_conversion.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffacilla <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 22:16:43 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/21 22:16:43 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:36:38 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "./includes/libftprintf.h"
 
 t_variables ft_found_conversion(t_variables v)
 {

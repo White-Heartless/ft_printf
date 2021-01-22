@@ -6,11 +6,11 @@
 /*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 18:50:16 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/20 19:10:08 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:44:18 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "./includes/libftprintf.h"
 
 static t_variables	ft_init_vars(t_variables v)
 {
@@ -31,6 +31,7 @@ static t_variables	ft_init_vars(t_variables v)
 	v.fd = FD;
 	v.i = 0;
 	v.error = 0;
+	v.buffer = malloc(1);
 	while (i < 11)
 		v.stmp[i++] = 0;
 	return (v);
@@ -80,7 +81,7 @@ int					ft_printf(const char *to_parse, ...)
 	va_end(v.arguments);
 	return (v.to_ret);
 }
-
+/*
 int	main(void)
 {
 	int i= 0;
@@ -109,4 +110,4 @@ int	main(void)
 	i =    printf("%3.5d\n", 15);
 	printf(">>%d<<",j);
 	printf(">>%d<<\n",i);
-}
+}*/

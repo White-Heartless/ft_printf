@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_di_conversion.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffacilla <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 22:16:43 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/21 22:16:43 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:35:30 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libftprintf.h"
 
 static char			*ft_ntoa(long long n, t_variables *v)
 {
@@ -73,9 +73,9 @@ static t_variables	ft_add_width(t_variables v, size_t len)
 		p[i++] = (v.flags[4] == 1) ? '0' :' ';
 	p[i] = 0;
 	if (v.flags[0] == 1)
-		v.buffer = ft_strjoinfree(&v.buffer, &p, 2);
+		v.buffer = ft_strjoinfree(&v.buffer, &p, 2);		
 	else
-		v.buffer = ft_strjoinfree(&p, &v.buffer, 2);
+		v.buffer = ft_strjoinfree(&p, &v.buffer, 2);	
 	return (v);
 }
 
@@ -97,9 +97,8 @@ t_variables			ft_di_conversion(t_variables v)
 	if (ft_strlen(v.buffer) < (size_t)v.precision)
 		v = ft_add_precision(v, v.precision - ft_strlen(v.buffer));
 	if (ft_strlen(v.buffer) < (size_t)v.width)
-		v = ft_add_width(v, v.width - ft_strlen(v.buffer));
+		v = ft_add_width(v, v.width - ft_strlen(v.buffer));	
 	ft_putstr_fd(v.buffer,FD);
-	printf("W%dW",v.width);
 	v.str = v.str + v.i + 1;
 	v.to_ret = v.to_ret + ft_strlen(v.buffer);
 	return (v);

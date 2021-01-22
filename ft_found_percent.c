@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   found_percent.c                                    :+:      :+:    :+:   */
+/*   ft_found_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffacilla <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 22:16:43 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/20 22:16:43 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:36:07 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "./includes/libftprintf.h"
 
 static t_variables	ft_set_flag(t_variables v)
 {

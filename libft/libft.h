@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffacilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 10:31:10 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/14 11:02:41 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:08:08 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-//# include <unistd.h>mac only
-#include <io.h>//windows
+# include <unistd.h>//mac only
+//#include <io.h>//windows
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>

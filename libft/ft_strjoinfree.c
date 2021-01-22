@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoinfree.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffacilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 11:55:54 by ffacilla          #+#    #+#             */
-/*   Updated: 2021/01/14 11:14:47 by ffacilla         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:51:44 by ffacilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*ft_strjoinfree(char **s1, char **s2, int f)
 		new[i++] = s2[0][j++];
 	new[i] = 0;
 	if (f == 0 || f == 2)
-		free(s1);
+		free(*s1);
 	if (f == 1 || f == 2)
-		free(s2);
+		free(*s2);
 	return (new);
 }
