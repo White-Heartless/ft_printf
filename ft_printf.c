@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
-#include <stdio.h>
 
 static t_variables	ft_init_vars(t_variables v)
 {
@@ -21,9 +20,9 @@ static t_variables	ft_init_vars(t_variables v)
 	v.to_ret = 0;
 	v.counter = 0;
 	v.num = 0;
-	v.width = -1;
-	v.length = -1;
-	v.precision = -1;
+	v.width = 0;
+	v.length = 0;
+	v.precision = 0;
 	v.flags[0] = 0;
 	v.flags[1] = 0;
 	v.flags[2] = 0;
@@ -31,7 +30,7 @@ static t_variables	ft_init_vars(t_variables v)
 	v.flags[4] = 0;
 	v.fd = FD;
 	v.i = 0;
-	error = 0;
+	v.error = 0;
 	while (i < 11)
 		v.stmp[i++] = 0;
 	return (v);
@@ -47,9 +46,9 @@ t_variables			ft_flush_v(t_variables v)
 	v.i = 0;
 	v.counter = 0;
 	v.num = 0;
-	v.width = -1;
-	v.length = -1;
-	v.precision = -1;
+	v.width = 0;
+	v.length = 0;
+	v.precision = 0;
 	v.flags[0] = 0;
 	v.flags[1] = 0;
 	v.flags[2] = 0;
@@ -87,8 +86,8 @@ int	main(void)
 	int i= 14;
 	long int b = 166;
 	int j= 0;
-	j = ft_printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%ld<\nchar>%c<\n", 13, 166, 0,b,'w');
-	i =    printf("ciao\nmam>%d<ma>%d<xxx>%d<ttt>%ld<\nchar>%c<\n", 13, 166, 0,b,'w');
+	j = ft_printf("ciao\nmam>%5d<ma>%d<xxx>%d<ttt>%ld<\nchar>%c<\n", 13, 166, 0,b,'w');
+	i =    printf("ciao\nmam>%5d<ma>%d<xxx>%d<ttt>%ld<\nchar>%c<\n", 13, 166, 0,b,'w');
 	printf(">>%d<<\n",j);
 	printf(">>%d<<\n",i);
 }

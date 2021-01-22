@@ -30,14 +30,14 @@ char	*ft_strjoinfree(char **s1, char **s2, int f)
 	if (new == NULL)
 		return (NULL);
 	i = 0;
-	while (*s1[i])
+	while (s1[0][i])
 	{
-		new[i] = *s1[i];
+		new[i] = s1[0][i];
 		i++;
 	}
 	j = 0;
-	while (*s2[j])
-		new[i++] = *s2[j++];
+	while (s2[0][j])
+		new[i++] = s2[0][j++];
 	new[i] = 0;
 	if (f == 0 || f == 2)
 		free(s1);

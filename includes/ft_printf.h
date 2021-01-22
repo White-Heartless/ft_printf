@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 //# include <unistd.h>mac only
+#include <stdio.h>
 #include <io.h>//windows
 # include "../libft/libft.h"
 

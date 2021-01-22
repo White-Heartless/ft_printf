@@ -1,1 +1,1 @@
-gcc -Wall -Wextra -Werror ft_printf.c ./includes/ft_printf.h ./libft/libft.h found_percent.c ./libft/ft_ischarset.c ./libft/ft_putnbr_fd.c ./libft/ft_putchar_fd.c
+gcc -Wall -Wextra -Werror ft_printf.c ft_found_percent.c ft_found_conversion.c ./includes/ft_printf.h ./conversions/ft_di_conversion.c ./libft/ft_strlen.c ./libft/ft_strjoinfree.c ./libft/libft.h ./libft/ft_ischarset.c ./libft/ft_atoi.c ./libft/ft_putnbr_fd.c ./libft/ft_putchar_fd.c ./libft/ft_putstr_fd.c
