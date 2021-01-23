@@ -12,6 +12,16 @@
 
 #include "./includes/libftprintf.h"
 
+static t_variables	ft_init_vars2(t_variables v)
+{
+	v.plus = (char *)malloc(2);
+	v.space = (char *)malloc(2);
+	v.plus[0] = '+';
+	v.plus[1] = 0;
+	v.space[0] = ' ';
+	v.space[1] = 0;
+	return (v);
+}
 
 static t_variables	ft_init_vars(t_variables v)
 {
@@ -36,6 +46,7 @@ static t_variables	ft_init_vars(t_variables v)
 	v.buffer = malloc(1);
 	while (i < 11)
 		v.stmp[i++] = 0;
+	v = ft_init_vars2 (v);
 	return (v);
 }
 
@@ -79,69 +90,24 @@ int					ft_printf(const char *to_parse, ...)
 		else
 		{
 			v = ft_found_percent(v);
+			if (v.error == 1)
+				return (-1);
 		}
 	}
 	va_end(v.arguments);
 	return (v.to_ret);
 }
 
+
 int	main(void)
 {
+	unsigned int a = 15;
+	unsigned int k = a;
 	int i= 0;
 	int j= 0;
-	j = ft_printf("%d\n", 13);
-	i =    printf("%d\n", 13);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("%d\n", 'a');
-	i =    printf("%d\n", 'a');
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("%5d\n", 42);
-	i =    printf("%5d\n", 42);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("%05d\n", 43);
-	i =    printf("%05d\n", 43);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("%5.3d\n", 14);
-	i =    printf("%5.3d\n", 14);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("%3.5d\n", 15);
-	i =    printf("%3.5d\n", 15);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("%3.5d\n", -16);
-	i =    printf("%3.5d\n", -16);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("|%-5.3d|\n", -17);
-	i =    printf("|%-5.3d|\n", -17);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("|%.d|\n", 0);
-	i =    printf("|%.d|\n", 0);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("|%-5.0d|\n", 19);
-	i =    printf("|%-5.0d|\n", 19);
-	printf(">>%d<<",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
-	j = ft_printf("|%5.0d|\n", 0);
-	i =    printf("|%5.0d|\n", 0);
-	printf(">>%d<<",j);
+	j = ft_printf("|%.0u|\n", a);
+	i =    printf("|%.0u|\n", k);
+	printf(">>%d<<\n",j);
 	printf(">>%d<<\n",i);
 	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
 }

@@ -43,6 +43,8 @@ typedef struct	s_variables
 	char	*buffer;
 	int		error;
 	int		pflag;
+	char	*plus;
+	char	*space;
 }				t_variables;
 
 int				ft_printf(const char *to_parse, ...);
@@ -50,5 +52,6 @@ t_variables		ft_found_percent(t_variables v);
 t_variables		ft_flush_v(t_variables v);
 t_variables		ft_found_conversion(t_variables v);
 t_variables		ft_di_conversion(t_variables v);
+t_variables		ft_n_conversion(t_variables v);
 
 #endif

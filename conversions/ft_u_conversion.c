@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_di_conversion.c                                 :+:      :+:    :+:   */
+/*   ft_u_conversion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffacilla <ffacilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,17 +12,15 @@
 
 #include "../includes/libftprintf.h"
 
-static char			*ft_ntoa(long long n, t_variables *v)
+static char			*ft_utoa(long long n, t_variables *v)
 {
 	size_t		ln;
 	char		*arr;
 	size_t		i;
 	int			numlen;
 
-	if (v->error == 1)
-		return (NULL);
-	ln = (n < 0) ? ((size_t)n * -1) : ((size_t)n);
-	numlen = (n < 0) ? (2) : (1);
+	ln = (size_t)n;
+	numlen = 1;
 	i = 1;
 	while (ln >= (i *= 10))
 		numlen++;
@@ -30,12 +28,12 @@ static char			*ft_ntoa(long long n, t_variables *v)
 		return (arr);
 	if (!(arr = (char *)malloc((sizeof(char) * numlen) + 1)) && (v->error = 1))
 		return (NULL);
-	arr[0] = (n < 0) ? '-' : arr[0];
 	i = numlen - 1;
 	arr[numlen] = 0;
-	while (n < 0 ? (i > 0 && i < 99) : (i < 99))
+	while (i < 99)
 	{
-		arr[i--] = '0' + (ln % 10);
+		arr[i] = '0' + (ln % 10);
+		i--;
 		ln /= 10;
 	}
 	return (arr);
@@ -46,23 +44,15 @@ static t_variables	ft_add_precision(t_variables v, size_t len)
 	char *p;
 	size_t i;
 
-	if (v.buffer[0] != '-')
-		len++;
-	else if(v.buffer[0] != '0')
-		len += 2;
+	len++;
 	if (v.buffer[0] == '0' && v.precision == 0 && v.pflag == 1)
 	{
 		v.buffer[0] = ' ';
 		return (v);
 	}
-	if ((v.error == 1) || (!(p = (char *)malloc(len + 1)) && (v.error = 1)))
+	if (!(p = (char *)malloc(len + 1)) && (v.error = 1))
 		return (v);
 	i = 0;
-	if (v.buffer[0] == '-')
-	{
-		p[0] = '-';
-		v.buffer[i++] = '0';
-	}
 	while (i < len)
 		p[i++] = '0';
 	p[i] = 0;
@@ -74,8 +64,7 @@ static t_variables	ft_add_width(t_variables v, size_t len)
 {
 	char *p;
 	size_t i;
-
-	if (v.error == -1 || !(p = (char *)malloc(len + 1)))
+	if (!(p = (char *)malloc(len + 1)))
 	{
 		v.error = 1;
 		return (v);
@@ -91,29 +80,23 @@ static t_variables	ft_add_width(t_variables v, size_t len)
 	return (v);
 }
 
-t_variables			ft_di_conversion(t_variables v)
+t_variables			ft_u_conversion(t_variables v)
 {
 	if (v.length == 1 || v.length == 2)
-		v.buffer = ft_ntoa((long long)va_arg(v.arguments, int), &v);
+		v.buffer = ft_utoa((unsigned long long)va_arg(v.arguments, unsigned int), &v);
 	else if (v.length == 3)
-		v.buffer = ft_ntoa((long long)va_arg(v.arguments, long), &v);
+		v.buffer = ft_utoa((long long)va_arg(v.arguments, unsigned long), &v);
 	else if (v.length == 4)
-		v.buffer = ft_ntoa(va_arg(v.arguments, long long), &v);
+		v.buffer = ft_utoa(va_arg(v.arguments, unsigned long long), &v);
 	else
-		v.buffer = ft_ntoa((long long)va_arg(v.arguments, int), &v);
-	/*if (v.buffer[0] == '0' && v.precision == 0 && v.pflag == 1)
-		v.buffer[0] = 0;*/
-	if (v.flags[1] == 1 && v.buffer[0] != '-')
-		v.buffer = ft_strjoinfree(&v.plus, &v.buffer, 1);
-	else if (v.flags[3] == 1 && v.buffer[0] != '-')
-		v.buffer = ft_strjoinfree(&v.space, &v.buffer, 1);
+		v.buffer = ft_utoa((long long)va_arg(v.arguments, unsigned int), &v);
 	write(FD,"",0);
+	if (v.buffer[0] == '0' && v.precision == 0 && v.pflag == 1)
+		v = ft_add_precision(v, 0);
 	if (ft_strlen(v.buffer) - 1 < (size_t)v.precision)
 		v = ft_add_precision(v, v.precision - ft_strlen(v.buffer) - 1);
 	if (ft_strlen(v.buffer) < (size_t)v.width)
 		v = ft_add_width(v, v.width - ft_strlen(v.buffer));
-	if (v.error == 1)
-		return (v);
 	ft_putstr_fd(v.buffer,FD);
 	v.str = v.str + v.i + 1;
 	v.to_ret = v.to_ret + ft_strlen(v.buffer);
