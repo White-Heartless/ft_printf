@@ -18,6 +18,8 @@ t_variables ft_found_conversion(t_variables v)
 		v = ft_di_conversion(v);
 	else if (v.tmp == 'n')
 		v = ft_n_conversion(v);
+	else if (v.tmp == 'x' || v.tmp == 'X')
+		v = ft_xX_conversion(v);
 	else if (v.tmp == '%')//has to manage width unlike printf or does it?
 	{
 		ft_putchar_fd('%', v.fd);

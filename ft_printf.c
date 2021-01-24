@@ -101,14 +101,19 @@ int					ft_printf(const char *to_parse, ...)
 
 int	main(void)
 {
-	unsigned int a = 15;
+	unsigned int a = 155;
 	unsigned int k = a;
-	int i= 0;
-	int j= 0;
-	j = ft_printf("|%.0u|\n", a);
-	i =    printf("|%.0u|\n", k);
-	printf(">>%d<<\n",j);
-	printf(">>%d<<\n",i);
-	printf("_/T\\_/T\\_/T\\_/T\\_/T\\_\n");
+	/*int i= 0;
+	int j= 0;*/
+	/*j =*/ ft_printf("|%#3.5X|\n", a);
+	/*i =*/    printf("|%#3.5X|\n", k);
+	/*printf(">>%d<<\n",j);
+	printf(">>%d<<\n",i);*/
+		/*j =*/ ft_printf("|%#5.3X|\n", 13);
+	/*i =*/    printf("|%#5.3X|\n", 13);
+		/*j =*/ ft_printf("|%#.0X|\n", 9);
+	/*i =*/    printf("|%#.0X|\n", 9);
+		/*j =*/ ft_printf("|%#5.0X|\n", 15678);
+	/*i =*/    printf("|%#5.0X|\n", 15678);
 }
 

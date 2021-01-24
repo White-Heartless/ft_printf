@@ -53,5 +53,8 @@ t_variables		ft_flush_v(t_variables v);
 t_variables		ft_found_conversion(t_variables v);
 t_variables		ft_di_conversion(t_variables v);
 t_variables		ft_n_conversion(t_variables v);
+t_variables		ft_u_conversion(t_variables v);
+t_variables		ft_xX_conversion(t_variables v);
+char			*ft_prefixfree(char *s1, char **s2);
 
 #endif
