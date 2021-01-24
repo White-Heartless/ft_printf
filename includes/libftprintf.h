@@ -18,6 +18,8 @@
 #include <stdio.h>
 #include <io.h>//windows
 #include "../libft/libft.h"
+#include <float.h>
+#include <math.h>
 
 #ifndef FD
 #define FD 1
@@ -55,6 +57,9 @@ t_variables		ft_di_conversion(t_variables v);
 t_variables		ft_n_conversion(t_variables v);
 t_variables		ft_u_conversion(t_variables v);
 t_variables		ft_xX_conversion(t_variables v);
+t_variables		ft_f_conversion(t_variables v);
+char			*ft_zeroftoa(t_variables *v);
+double			f_power();
 char			*ft_prefixfree(char *s1, char **s2);
 
 #endif

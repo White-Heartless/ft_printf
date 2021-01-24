@@ -98,22 +98,26 @@ int					ft_printf(const char *to_parse, ...)
 	return (v.to_ret);
 }
 
-
 int	main(void)
 {
-	unsigned int a = 155;
-	unsigned int k = a;
+	///unsigned int a = 155;
+	//unsigned int k = a;
 	/*int i= 0;
 	int j= 0;*/
-	/*j =*/ ft_printf("|%#3.5X|\n", a);
-	/*i =*/    printf("|%#3.5X|\n", k);
+	/*j =*/ ft_printf("|%f|\n", -15.34);
+	/*i =*/    printf("|%f|\n", -15.34);//-15.340000
 	/*printf(">>%d<<\n",j);
 	printf(">>%d<<\n",i);*/
-		/*j =*/ ft_printf("|%#5.3X|\n", 13);
-	/*i =*/    printf("|%#5.3X|\n", 13);
-		/*j =*/ ft_printf("|%#.0X|\n", 9);
-	/*i =*/    printf("|%#.0X|\n", 9);
-		/*j =*/ ft_printf("|%#5.0X|\n", 15678);
-	/*i =*/    printf("|%#5.0X|\n", 15678);
+		/*j =*/ ft_printf("|%f|\n", 17456.1234567);
+	/*i =*/    printf("|%f|\n", 17456.1234567);//17456.123457
+		/*j =*/ ft_printf("|%f|\n", 0.123456789);
+	/*i =*/    printf("|%f|\n", 0.123456789);//0.123457
+		/*j =*/ ft_printf("|%f|\n", 12345678.000000001);
+	/*i =*/    printf("|%f|\n", 12345678.000000001);//12345678.000000
+	/*j =*/ ft_printf("|%.5f|\n", 123.123456789);
+	/*i =*/    printf("|%.5f|\n", 123.123456789);//123.123456789000000
+	/*j =*/ ft_printf("|%-12.0f|\n", 123.123456789);
+	/*i =*/    printf("|%-12.0f|\n", 123.123456789);// 123.123457
+	/*j =*/ ft_printf("|%f|\n", (double)123);
+	/*i =*/    printf("|%f|\n", (double)123);// 123.000000
 }
-
