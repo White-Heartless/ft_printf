@@ -104,8 +104,8 @@ int	main(void)
 	//unsigned int k = a;
 	/*int i= 0;
 	int j= 0;*/
-	/*j =*/ ft_printf("|%f|\n", -15.34);
-	/*i =*/    printf("|%f|\n", -15.34);//-15.340000
+	/*j =*/ ft_printf("|%07d|\n", -54);
+	/*i =*/    printf("|%07d|\n", -54);//-15.340000
 	/*printf(">>%d<<\n",j);
 	printf(">>%d<<\n",i);*/
 		/*j =*/ ft_printf("|%f|\n", 17456.1234567);

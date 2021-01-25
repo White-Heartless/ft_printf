@@ -88,6 +88,11 @@ static t_variables	ft_add_width(t_variables v, size_t len)
 		v.buffer = ft_strjoinfree(&v.buffer, &p, 2);
 	else
 		v.buffer = ft_strjoinfree(&p, &v.buffer, 2);
+	if (v.buffer[len] == '-')
+	{
+		v.buffer[len] = (v.flags[4] == 1) ? '0' :' ';
+		v.buffer[0] = '-';
+	}
 	return (v);
 }
 
@@ -101,8 +106,8 @@ t_variables			ft_di_conversion(t_variables v)
 		v.buffer = ft_ntoa(va_arg(v.arguments, long long), &v);
 	else
 		v.buffer = ft_ntoa((long long)va_arg(v.arguments, int), &v);
-	/*if (v.buffer[0] == '0' && v.precision == 0 && v.pflag == 1)
-		v.buffer[0] = 0;*/
+	if (v.buffer[0] == '0' && v.precision == 0 && v.pflag == 1)
+		v.buffer[0] = 0;
 	if (v.flags[1] == 1 && v.buffer[0] != '-')
 		v.buffer = ft_prefixfree("+", &v.buffer);
 	else if (v.flags[3] == 1 && v.buffer[0] != '-')
